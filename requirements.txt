@@ -1,4 +1,4 @@
 Flask
 ezdxf
-xlwings
+openpyxl
 openpyxl
