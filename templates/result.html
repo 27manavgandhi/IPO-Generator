@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>File Processed Successfully</h2>
+    <p>Your file has been processed successfully. Click the button below to download the Excel report.</p>
+    <a href="{{ url_for('download_file', filename=filename) }}" class="btn">Download Excel</a>
+</div>
+{% endblock %}

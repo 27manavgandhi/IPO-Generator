@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Welcome to IPO Generator Tool</h2>
+    <p>Upload your AutoCAD file to extract plate information and download the results in Excel format.</p>
+    <a href="{{ url_for('upload_file') }}" class="btn">Get Started</a>
+</div>
+{% endblock %}
