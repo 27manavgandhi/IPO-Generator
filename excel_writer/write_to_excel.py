@@ -1,25 +1,20 @@
-import xlwings as xw
+from openpyxl import Workbook
 
 def write_plate_info_to_excel(plate_info, excel_path):
-    with xw.App(visible=False) as app:
-        book = app.books.add()
-        
-        # Create the "Mivan Report" sheet
-        report_sheet = book.sheets.add("Report")
-        report_sheet['A1'].value = 'Plate Name'
-        report_sheet['B1'].value = 'Count'
-        report_sheet['C1'].value = 'Layer Name'
-        
-        # Write plate information
-        for i, info in enumerate(plate_info, start=2):
-            report_sheet[f'A{i}'].value = info["Plate Name"]
-            report_sheet[f'B{i}'].value = info["Count"]
-            report_sheet[f'C{i}'].value = info["Layer Name"]
-        
-        # Auto-fit columns
-        report_sheet.autofit()
-        
-        # Save the workbook
-        book.save(excel_path)
-        book.close()
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Plate Information"
 
+    # Write headers
+    headers = ["Plate Number", "X", "Y", "Z"]
+    for col, header in enumerate(headers, start=1):
+        ws.cell(row=1, column=col, value=header)
+
+    # Write data
+    for row, plate in enumerate(plate_info, start=2):
+        ws.cell(row=row, column=1, value=plate['plate_number'])
+        ws.cell(row=row, column=2, value=plate['x'])
+        ws.cell(row=row, column=3, value=plate['y'])
+        ws.cell(row=row, column=4, value=plate['z'])
+
+    wb.save(excel_path)
