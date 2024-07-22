@@ -3,6 +3,8 @@ import traceback
 import time
 from flask import Flask, render_template, request, redirect, url_for, send_file
 from dxf_reader.extract_coords import extract_plate_info
+
+
 from excel_writer.write_to_excel import write_plate_info_to_excel
 
 app = Flask(__name__)
