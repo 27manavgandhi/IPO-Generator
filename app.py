@@ -42,7 +42,6 @@ def process_file(filename):
         
         # Simulate processing time
         time.sleep(5)
-
         plate_info = extract_plate_info(dxf_path)
         if not plate_info:
             return "No plate information found in the DXF file.", 400
@@ -66,4 +65,5 @@ def download_file(filename):
 if __name__ == "__main__":
     if not os.path.exists(app.config['UPLOAD_FOLDER']):
         os.makedirs(app.config['UPLOAD_FOLDER'])
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
