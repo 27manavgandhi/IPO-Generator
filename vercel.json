@@ -11,6 +11,16 @@
         "src": "/(.*)",
         "dest": "app.py"
       }
-    ]
+    ],
+    {
+  "functions": {
+    "api/*.py": {
+      "maxDuration": 60,
+      "memory": 1024,
+      "maxPayloadSize": "8mb"
+    }
+  }
+}
+    
   }
   
