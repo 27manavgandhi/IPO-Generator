@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="IPO Generator is a powerful tool that allows you to convert DXF files into Excel reports. Easily extract and analyze plate information from your DXF files with just a few clicks.">
+  <meta name="keywords" content="autocad conversion, dxf parser, dxf extract">
+
+  <title>IPO Generator</title>
+
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='aos.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='fonts/typography/fonts.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='fonts/fontawesome/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/aos/aos.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/fancybox/jquery.fancybox.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/bootstrap/dist/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/demo.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/clash-display');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+  </style>
+</head>
+
+<body>
+  <div class="preloader-wrapper">
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  
+  <div class="page-wrapper overflow-hidden">
+    <header class="site-header site-header--transparent site-header--sticky">
+      <div class="container">
+        <nav class="navbar site-navbar">
+          <div class="brand-logo">
+            <a href="home.html">
+              <img class="logo-light" src="{{ url_for('static', filename='image/logo-new.svg') }}" alt="brand logo">
+            </a>
+          </div>
+          <div class="menu-block-wrapper">
+            <div class="menu-overlay"></div>
+            <nav class="menu-block" id="append-menu-header">
+              <div class="mobile-menu-head">
+                <a href='home.html'>
+                  <img src="{{ url_for('static', filename='image/icons/logo-whites.svg') }}" alt="brand logo">
+                </a>
+                <div class="current-menu-title"></div>
+                <div class="mobile-menu-close">&times;</div>
+              </div>
+            </nav>
+          </div>
+          <div class="mobile-menu-trigger">
+            <span></span>
+          </div>
+          <div class="header-cta-btn-wrapper">
+            <a href="{{ url_for('upload_file') }}" class="btn-masco btn-masco--header rounded-pill btn-fill--up">
+              <span>Get Started</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="home-8_content-section-3 section-padding-120 bg-cream">
+        <div class="container">
+          <div class="row row--custom">
+            <div class="offset-xxl-1 col-xl-6 col-lg-7 col-md-6 col-7" data-aos-duration="1000" data-aos="fade-left">
+              <div class="home-8_content-image-3 content-image--mobile-width">
+                <img src="{{ url_for('static', filename='image/home-8/content-image-3.png') }}" alt="content image">
+              </div>
+            </div>
+            <div class="col-xxl-5 col-xl-6 col-lg-5 col-md-8 col-auto" data-aos-duration="1000" data-aos="fade-right">
+              <div class="content">
+                <div class="content-text-block">
+                  <h2 class="content-title heading-lg text-black-2">Simple, powerful & efficient process</h2>
+                  <p>At IPO Generator, we follow an official, straightforward working process designed to maximize your business growth. From strategy to marketing and growth, we've got you covered.</p>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+                  <div style="width: 300px; background-color: #2b2b2b; border-radius: 9999px; overflow: hidden;">
+                    <div id="progressBar" style="width: 0%; height: 10px; background-color: blue; transition: width 0.5s ease;"></div>
+                  </div>
+                  <div id="progressLabel" style="color: #333; margin-top: 10px; text-align: center;">0%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+
+    <div class="cta-base">
+      <div class="container">
+        <div class="cta-base__wrapper border-bottom-dark">
+          <div class="row align-items-center justify-content-center justify-content-md-between gutter-y-20">
+            <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-7 col-10">
+              <div class="cta-base__text-block">
+                <h2 class="heading-md text-white">Ready to grow your business digitally?</h2>
+              </div>
+            </div>
+            <div class="col-xl-auto col-lg-4 col-md-5 col-xs-8 col-10">
+              <div class="cta-base__button">
+                <a class='btn-masco rounded-pill btn-fill--up' href="{{ url_for('upload_file') }}">
+                  <span>Let's start the project</span>
+                </a>
+                <div class="cta-base__button-shape">
+                  <img src="{{ url_for('static', filename='image/home-1/cta-shape.svg') }}" alt="CTA Shape">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="copyright-block">
+      <div class="container">
+        <div class="copyright-inner text-center copyright-border">
+          <p>© Copyright 2024, All Rights Reserved by IPO Generator</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='plugins/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/jquery/jquery-migrate.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/inlineSvg/inlineSvg.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/fancybox/jquery.fancybox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/aos/aos.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/isotope/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/isotope/packery.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/isotope/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/slick/slick.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/countdown/jquery.countdown.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+  
+  <script>
+    const progressBar = document.getElementById('progressBar');
+    const progressLabel = document.getElementById('progressLabel');
+    let value = 0;
+    
+    function updateProgress() {
+      if (value < 100) {
+        value += 5;
+        progressBar.style.width = `${value}%`;
+        progressLabel.textContent = `${value}%`;
+        
+        if (value === 100) {
+          setTimeout(function() {
+            window.location.href = "{{ url_for('process_file', filename=filename) }}";
+          }, 500); // Redirect after 0.5 seconds when reaching 100%
+        } else {
+          setTimeout(updateProgress, 500); // Call the function again after 0.5 seconds
+        }
+      }
+    }
+    
+    // Start the progress update
+    updateProgress();
+  </script>
+ 
+  <script>
+    setTimeout(function() {
+      window.location.href = "{{ url_for('process_file', filename=filename) }}";
+    }, 1000); // Redirect after 1 second
+  </script>
+</body>
+</html>

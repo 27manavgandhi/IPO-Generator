@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="IPO Generator is a powerful tool that allows you to convert DXF files into Excel reports. Easily extract and analyze plate information from your DXF files with just a few clicks.">
+  <meta name="keywords" content="autocad conversion, dxf parser, dxf extract">
+  <title>IPO Generator</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='aos.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='fonts/typography/fonts.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='fonts/fontawesome/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/aos/aos.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/fancybox/jquery.fancybox.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/bootstrap/dist/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/demo.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/clash-display');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+  </style>
+</head>
+
+
+<body>
+  <div class="preloader-wrapper">
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  
+  <div class="page-wrapper overflow-hidden">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~
+     Header Area
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+ <header class="site-header site-header--transparent site-header--sticky">
+  <div class="container">
+    <nav class="navbar site-navbar">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~
+        Brand Logo
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <div class="brand-logo">
+        <a href="home.html">
+          <!-- light version logo (logo must be black)-->
+          <img class="logo-light" src="{{ url_for('static', filename='image/logo-new.svg') }}" alt="brand logo">
+         
+        </a>
+      </div>
+      <div class="menu-block-wrapper ">
+        <div class="menu-overlay"></div>
+        <nav class="menu-block" id="append-menu-header">
+          <div class="mobile-menu-head">
+            <a href='home.html'>
+              <img src="{{ url_for('static', filename='image/icons/logo-whites.svg') }}" alt="brand logo">
+            </a>
+            <div class="current-menu-title"></div>
+            <div class="mobile-menu-close">&times;</div>
+          </div>
+        
+        </nav>
+      </div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~
+      mobile menu trigger
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <div class="mobile-menu-trigger">
+        <span></span>
+      </div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~
+        Mobile Menu Hamburger Ends
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <div class="header-cta-btn-wrapper">
+        
+        <a href="{{ url_for('upload_file') }}" class="btn-masco btn-masco--header rounded-pill btn-fill--up">
+                    <span>Get Started</span></a>
+      </div>
+    </nav>
+  </div>
+</header>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~
+     navbar-
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Home 1  : Hero Section 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="home-1_hero-section" id="hero">
+      <div class="home-1_hero-shape-1">
+        <img src="{{ url_for('static', filename='image/home-1/hero-shape-1.svg') }}" alt="image alt">
+      </div>
+      <div class="home-1_hero-shape-2">
+        <img src="{{ url_for('static', filename='image/home-1/hero-shape-2.svg') }}" alt="image alt">
+      </div>
+      <div class="container">
+        <div class="row row--hero-content">
+          <div class="col-xxl-auto col-lg-6 col-md-7 col-sm-8 col-10 " data-aos-duration="1000" data-aos="fade-left" data-aos-delay="300">
+            <div class="home-2_hero-image-block">
+              <div class="home-2_hero-image">
+                <img src="{{ url_for('static', filename='image/home-2/hero-image1111.png') }}" alt="hero image" style="width: 499px; height: 505px;" />
+                <div class="home-2_hero-image-shape">
+                  <img src="{{ url_for('static', filename='image/home-2/hero-image-shape.svg') }}" alt="hero shape" />
+                </div>
+                <div class="home-2_hero-image-man-1">
+                  <img src="{{ url_for('static', filename='image/home-2/hero-image-man-1.png') }}" alt="hero shape" />
+                </div>
+                <div class="home-2_hero-image-man-2">
+                  <img src="{{ url_for('static', filename='image/home-2/hero-image-man-2.png') }}" alt="hero shape" />
+                </div>
+              </div>
+            </div>
+         
+          </div>
+          <div class="col-xxl-auto col-lg-6 col-md-10" data-aos-duration="1000" data-aos="fade-right" data-aos-delay="300">
+            <div class="home-1_hero-content">
+              <div class="home-1_hero-content-text">
+                <h1 class="hero-content__title heading-xxl">
+                  Enhancing AutoCAD file processing
+                </h1>
+                <p>
+                  IPO Generator is a powerful tool that allows you to convert AutoCAD files into Excel reports. Easily extract and analyze plate information from your AutoCAD files with just a few clicks.
+                </p>
+              </div>
+              <a href="{{ url_for('upload_file') }}">
+                <button class="btn-masco rounded-pill" style="width: 250px;">Get Started</button>
+              </a>
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~
+    Home 1 : Brand Section
+~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Home 1 : Service Section
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div class="home-1_service-section padding-bottom-120" id="feature">
+      <div class="home-1_service-section-shape">
+        <img src="{{ url_for('static', filename='image/home-1/service-section-shape.svg') }}" alt="image alt">
+      </div>
+      <div class="container">
+        <div class="home-1_service-section-wrapper">
+          <div class="row justify-content-center">
+            <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9">
+              <div class="section-heading text-center">
+                <h2 class="section-heading__title heading-md text-black">All the digital services that are convenient for you</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row gutter-y-default justify-content-center">
+            <div class="col-xl-6 col-lg-6 col-md-10">
+              <a class='service-card   hvr-fill' data-aos-duration='1000' data-aos='fade-right' href='#'>
+                <div class="service-card__icon">
+                  <img src="{{ url_for('static', filename='image/icons/icon-service-1.svg') }}" alt="image alt" class="inline-svg">
+                </div>
+                <div class="service-card__body">
+                  <h3 class="service-card__title">Accurate Data Extraction</h3>
+                  <p>IPO Generator provides precise data extraction, ensuring that all relevant plate information is captured accurately. This allows for better analysis and decision-making.</p>
+                  
+                </div>
+              </a>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-10">
+              <a class='service-card   hvr-fill' data-aos-duration='1000' data-aos='fade-left' href='#'>
+                <div class="service-card__icon">
+                  <img src="{{ url_for('static', filename='image/icons/icon-service-2.svg') }}" alt="image alt" class="inline-svg">
+                </div>
+                <div class="service-card__body">
+                  <h3 class="service-card__title">AutoCAD to Excel Conversion Tool</h3>
+                  <p>IPO Generator is a powerful tool that allows you to convert AutoCAD files into Excel reports. Easily extract and analyze plate information from your AutoCAD files with just a few clicks.</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-10">
+              <a class='service-card   hvr-fill' data-aos-duration='1000' data-aos='fade-right' href='#'>
+                <div class="service-card__icon">
+                  <img src="{{ url_for('static', filename='image/icons/icon-service-3.svg') }}" alt="image alt" class="inline-svg">
+                </div>
+                <div class="service-card__body">
+                  <h3 class="service-card__title">User-Friendly Interface</h3>
+                  <p>Our intuitive interface ensures that even users with minimal technical knowledge can easily convert and analyze their AutoCAD files. Simply upload your file, click convert, and get detailed reports.</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-10">
+              <a class='service-card   hvr-fill' data-aos-duration='1000' data-aos='fade-left' href='#'>
+                <div class="service-card__icon">
+                  <img src="{{ url_for('static', filename='image/icons/icon-service-4.svg') }}" alt="image alt" class="inline-svg">
+                </div>
+                <div class="service-card__body">
+                  <h3 class="service-card__title">Support &amp; Assistance</h3>
+                  <p>Our dedicated support team is always ready to help. Whether you need assistance with converting your files or understanding the extracted data, we are here to provide the support</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Home 1  : Content Section 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<div class="home-1_content-section-1 section-padding-120" id="about">
+<div class="home-1_content-section-1 padding-bottom-120 bg-white-2">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-xxl-6 col-lg-7 col-md-8 col-sm-9 col-10">
+        <div class="home-10_section-heading">
+          <h2 class="home-10_section-heading__title">
+            Start converting AutoCAD files in three easy steps
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="row process-widget-2-row">
+      <div class="col-md-6 col-lg-4 col-8">
+        <div class="process-widget-2">
+          <div class="process-widget-2__count">
+            <span>1</span>
+          </div>
+          <div class="process-widget-2__body">
+            <h3 class="process-widget-2__title">Upload your file</h3>
+            <p>Upload your AutoCAD file quickly and easily. No complicated setup required.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 col-8">
+        <div class="process-widget-2">
+          <div class="process-widget-2__count">
+            <span>2</span>
+          </div>
+          <div class="process-widget-2__body">
+            <h3 class="process-widget-2__title">Data Extraction</h3>
+            <p>Our advanced AI technology automatically parses your AutoCAD file and extracts all relevant plate information with precision.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 col-8">
+        <div class="process-widget-2">
+          <div class="process-widget-2__count">
+            <span>3</span>
+          </div>
+          <div class="process-widget-2__body">
+            <h3 class="process-widget-2__title">Get detailed reports</h3>
+            <p>Receive your detailed Excel reports in moments, ready for analysis and decision-making.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    <div class="home-1_content-section-1 section-padding-120" id="about">
+      <div class="container">
+        <div class="row row--custom">
+          <div class="offset-xl-1 col-lg-5 col-auto" data-aos-duration="1000" data-aos="fade-left">
+            <div class="home-1_content-image-1 content-image--mobile-width">
+              <img src="{{ url_for('static', filename='image/home-1/content-image-1.png') }}" alt="alternative text">
+              <div class="home-1_content-image-1-shape">
+                <img src="{{ url_for('static', filename='image/home-1/content-image-1-shape.svg') }}" alt="alternative text">
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-7 col-md-10 col-auto" data-aos-duration="1000" data-aos="fade-right">
+            <div class="content">
+              <div class="content-text-block">
+                <h2 class="content-title heading-md text-black">
+                  Convert AutoCAD files into Excel reports with ease using IPO Generator
+              </h2>
+              <p>
+                  IPO Generator is a powerful tool that transforms your AutoCAD files into detailed Excel reports, allowing you to easily extract and analyze plate information with just a few clicks.
+              </p>
+              <p>
+                  Our advanced AI technology ensures accurate data extraction, saving you time and enhancing productivity. Enjoy seamless conversion and customizable reports to meet your specific needs.
+              </p>
+             
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Home 1  : Content Section 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="home-1_content-section-2 padding-bottom-120">
+      <div class="container">
+        <div class="row row--custom">
+          <div class="col-xl-5 col-lg-5 col-auto" data-aos-duration="1000" data-aos="fade-right">
+            <div class="home-1_content-image-2 content-image--mobile-width">
+              <img src="{{ url_for('static', filename='image/home-1/content-image-2.png') }}" alt="alternative text">
+              <div class="home-1_content-image-2-shape">
+                <img src="{{ url_for('static', filename='image/home-1/content-image-1-shape.svg') }}" alt="alternative text">
+              </div>
+            </div>
+          </div>
+          <div class="offset-xl-1 col-xl-6 col-lg-7 col-md-11" data-aos-duration="1000" data-aos="fade-left">
+            <div class="content">
+                <div class="content-text-block">
+                    <h2 class="content-title heading-md text-black">
+                        Discover the power of IPO Generator for efficient AutoCAD to Excel conversions
+                    </h2>
+                    <p>
+                        IPO Generator is your go-to tool for transforming AutoCAD files into detailed Excel reports, making data extraction and analysis effortless.
+                    </p>
+                </div>
+                <div class="content-list-block">
+                    <ul class="content-list">
+                        <li class="content-list-item">
+                            <img src="{{ url_for('static', filename='image/icons/icon-check-blue.svg') }}" alt="alternative text">
+                            Seamlessly convert AutoCAD files to Excel reports with high accuracy.
+                        </li>
+                        <li class="content-list-item">
+                            <img src="" alt="alternative text">
+                            Save time and increase productivity with automated data extraction.
+                        </li>
+                        <li class="content-list-item">
+                            <img src="{{ url_for('static', filename='image/icons/icon-check-blue.svg') }}" alt="alternative text">
+                            Customize reports to fit your specific needs for better analysis.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+
+     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Pricing 2  : Pricing Section
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<div class="pricing-2_main_pricing-section section-padding-120">
+  <div class="container">
+    <div class="row text-center justify-content-center">
+      <div class="col-xxl-6 col-lg-7 col-md-9">
+        <div class="section-heading">
+          <h2 class="section-heading__title heading-md ">Choice the right pricing plan that suits your need</h2>
+          <div class="pricing-2_main-pricing-control-block">
+            <div class="pricing-control-3">
+              <span data-pricing-trigger="pricing-1" data-target="monthly">Per Month</span>
+              <span data-pricing-trigger="pricing-1" data-target="yearly" class="pricing-control-3__indicator indicator-white toggle"></span>
+              <span data-pricing-trigger="pricing-1" data-target="yearly">Per Year</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row row--custom gutter-y-30" data-plan-id="pricing-1" data-plan-active="monthly">
+      <div class="col-lg-4 col-md-6" data-aos-duration="1000" data-aos="fade-up">
+        <div class="pricing-card">
+          <div class="pricing-card__head">
+            <h3 class="pricing-card__plan">Free Plan</h3>
+            <h3 class="pricing-card__price-block">₹<span class="pricing-card__price dynamic-value" data-yearly="00" data-monthly="00">00</span>/month</h3>
+            <p>
+              No credit card required
+            </p>
+          </div>
+          <div class="pricing-card__body">
+            <ul class="pricing-card__list">
+              <li>100 AutoCAD to Excel conversions</li>
+              <li>60-day conversations history</li>
+              <li>Basic widget customization</li>
+              <li>Web, desktop & mobile apps</li>
+              <li class="disabled">Engage visitors via visitor list</li>
+              <li class="disabled">Engage with automatic messages</li>
+            </ul>
+            <div class="pricing-card__button">
+              <a href="#contact" class="btn-masco btn-outline rounded-pill w-100">Purchase now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos-duration="1000" data-aos="fade-up">
+        <div class="pricing-card active">
+          <div class="pricing-card__head">
+            <h3 class="pricing-card__plan">Popular Plan</h3>
+            <h3 class="pricing-card__price-block">₹<span class="pricing-card__price dynamic-value" data-yearly="250" data-monthly="199">199</span>/month</h3>
+            <p>
+              No credit card required
+            </p>
+          </div>
+          <div class="pricing-card__body">
+            <ul class="pricing-card__list">
+              <li>Access to advanced data extraction features</li>
+              <li>3-year conversations history</li>
+              <li>Advanced widget customization</li>
+              <li>24/7 system monitoring facility</li>
+              <li>Engage visitors via visitor list</li>
+              <li>Engage with automatic messages</li>
+            </ul>
+            <div class="pricing-card__button">
+              <a href="#contact" class="btn-masco rounded-pill w-100">Purchase now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos-duration="1000" data-aos="fade-up">
+        <div class="pricing-card">
+          <div class="pricing-card__head">
+            <h3 class="pricing-card__plan">Standard Plan</h3>
+            <h3 class="pricing-card__price-block">₹<span class="pricing-card__price dynamic-value" data-yearly="99" data-monthly="49">49</span>/month</h3>
+            <p>
+              No credit card required
+            </p>
+          </div>
+          <div class="pricing-card__body">
+            <ul class="pricing-card__list">
+              <li>Unlimited AutoCAD to Excel conversions</li>
+              <li>1- year conversations history</li>
+              <li>Advanced widget customization</li>
+              <li>24/7 system monitoring facility</li>
+              <li class="disabled">Engage visitors via visitor list</li>
+              <li class="disabled">Engage with automatic messages</li>
+            </ul>
+            <div class="pricing-card__button">
+              <a href="#contact" class="btn-masco btn-outline rounded-pill w-100">Purchase now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Home 1  : FAQ Section 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <div class="home-1_faq-section section-padding-120">
+      <div class="home-1_faq-shape-1">
+        <img src="{{ url_for('static', filename='image/home-1/faq-shape-1.svg') }}" alt="image alt">
+      </div>
+      <div class="home-1_faq-shape-2">
+        <img src="{{ url_for('static', filename='image/home-1/faq-shape-2.svg') }}" alt="image alt">
+      </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xxl-6 col-lg-8 col-md-9">
+            <div class="section-heading section-heading text-center">
+              <h2 class="section-heading__title heading-md text-black">Frequently asked questions about our IPO Generator</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row row--custom">
+          <div class="col-lg-10">
+            <div class="accordion-style-1" id="home-1-faq">
+              <div class="accordion-item">
+                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#home-1-faq-item" aria-expanded="true" aria-controls="home-1-faq-item">
+                  Q. What is IPO Generator?
+                </button>
+                <div id="home-1-faq-item" class="accordion-collapse collapse show" data-bs-parent="#home-1-faq">
+                  <div class="accordion-item__body">
+                    IPO Generator is a powerful tool designed to convert AutoCAD files into Excel reports, allowing users to easily extract and analyze plate information from their AutoCAD files with just a few clicks.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#home-1-faq-item-2" aria-expanded="false" aria-controls="home-1-faq-item-2">
+                  Q. What services does IPO Generator provide?
+                </button>
+                <div id="home-1-faq-item-2" class="accordion-collapse collapse" data-bs-parent="#home-1-faq">
+                  <div class="accordion-item__body">
+                    IPO Generator offers seamless AutoCAD to Excel conversion, advanced data extraction, detailed report customization, and various data analysis tools to help you make informed decisions based on your plate information.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#home-1-faq-item-3" aria-expanded="false" aria-controls="home-1-faq-item-3">
+                  Q. Using IPO Generator vs manual conversion: What is the difference?
+                </button>
+                <div id="home-1-faq-item-3" class="accordion-collapse collapse" data-bs-parent="#home-1-faq">
+                  <div class="accordion-item__body">
+                    Using IPO Generator automates the conversion process, saving you time and ensuring accuracy. Manual conversion is time-consuming and prone to errors, while IPO Generator provides fast, reliable, and precise results.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#home-1-faq-item-4" aria-expanded="false" aria-controls="home-1-faq-item-4">
+                  Q. What questions should you ask when considering IPO Generator?
+                </button>
+                <div id="home-1-faq-item-4" class="accordion-collapse collapse" data-bs-parent="#home-1-faq">
+                  <div class="accordion-item__body">
+                    When considering IPO Generator, ask about the features included in each pricing plan, the level of customer support provided, the accuracy of data extraction, and how customizable the generated reports are to fit your needs.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#home-1-faq-item-5" aria-expanded="false" aria-controls="home-1-faq-item-5">
+                  Q. How does IPO Generator charge for its services?
+
+                </button>
+                <div id="home-1-faq-item-5" class="accordion-collapse collapse" data-bs-parent="#home-1-faq">
+                  <div class="accordion-item__body">
+                    IPO Generator offers different pricing plans to suit various needs, including a Free Plan, a Standard Plan at ₹49/month, and a Popular Plan at ₹199/month. Each plan comes with its own set of features and benefits, allowing you to choose the one that best fits your requirements.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-button">
+          <a href="#contact" class="btn-masco rounded-pill btn-fill--up"><span>Still, have any questions? Contact us</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Conatct : Feature Section 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<div class="contact_feature-section section-padding" id="contact">
+  <div class="container">
+    <div class="row justify-content-center gutter-y-default">
+      <div class="col-lg-4 col-md-6" data-aos-duration="1000" data-aos="fade-left" data-aos-delay="">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <img src="{{ url_for('static', filename='image/contact-details/feature-icon-1.svg') }}" alt="image alt">
+          </div>
+          <div class="feature-card__body">
+            <a href="https://wa.me/919717208209" target="_blank">
+
+            <h3 class="feature-card__title">Chat with us</h3>
+            <p>We're waiting to help you every Monday-Friday from 9 am to 5 pm EST easily.</p>
+          </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos-duration="1000" data-aos="fade-left" data-aos-delay="">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <img src="{{ url_for('static', filename='image/contact-details/feature-icon-2.svg') }}" alt="image alt">
+          </div>
+          <div class="feature-card__body">
+            <h3 class="feature-card__title">Give us a call</h3>
+            <p>Give us a ring at <span>(+919717208209)</span>. Every monday-friday from 9 am to 5 pm.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos-duration="1000" data-aos="fade-left" data-aos-delay="">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <img src="{{ url_for('static', filename='image/contact-details/feature-icon-3.svg') }}">
+            
+          </div>
+          <div class="feature-card__body">
+            <h3 class="feature-card__title">Email Us</h3>
+            <p>Drop us an email at <span>support@ipogenerator.com</span> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Conatct : Main Section 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="contact_main-section padding-bottom-120">
+      <div class="container">
+        <div class="row row--cuatom">
+          <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11">
+            <div class="contact_main-content">
+              <div class="content">
+                <div class="content-text-block">
+                  <h2 class="heading-md">Fill out this form, We ‘ll quickly get back to you </h2>
+                  <p>
+                    We are here to help you! Tell us how we can help and we’ll get in touch within next 24hrs with expert
+                  </p>
+                  <div class="content-divider"></div>
+                </div>
+              </div>
+         
+            </div>
+          </div>
+          <div class="offset-xl-1 col-lg-6 col-md-10">
+            <div class="form-box-style__form-wrapper bg-light-2">
+              <form class="form-box-style">
+                <div class="form-box-style__form-inner">
+                  <div class="form-box-style__form-input">
+                    <h3 class="form-box-style-title">Your name</h3>
+                    <input class="form-control bg-white" type="text" placeholder="Enter your full name">
+                  </div>
+                  <div class="form-box-style__form-input">
+                    <h3 class="form-box-style-title">Email address</h3>
+                    <input class="form-control bg-white" type="text" placeholder="Enter your email">
+                  </div>
+                  <div class="form-box-style__form-input">
+                    <h3 class="form-box-style-title">Write your message</h3>
+                    <textarea class="form-control bg-white textarea" placeholder="Write us your question here..."></textarea>
+                  </div>
+                </div>
+              </form>
+              <div class="form-box-style__form-input-button">
+                <button type="submit" class="btn-masco rounded-pill w-100">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~
+     CTA Base 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div class="cta-base">
+      <div class="container">
+        <div class="cta-base__wrapper border-bottom-dark">
+          <div class="row align-items-center justify-content-center justify-content-md-between gutter-y-20">
+            <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-7 col-10">
+              <div class="cta-base__text-block">
+                <h2 class="heading-md text-white">Ready to grow your business digitally?</h2>
+              </div>
+            </div>
+            <div class="col-xl-auto col-lg-4 col-md-5 col-xs-8 col-10">
+              <div class="cta-base__button">
+                <a class='btn-masco rounded-pill btn-fill--up' href="{{ url_for('upload_file') }}">
+                  <span>Let's start the project</span></a>
+                <div class="cta-base__button-shape">
+                  <img src="{{ url_for('static', filename='image/home-1/cta-shape.svg') }}" alt=" Image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="copyright-block">
+        <div class="container">
+          <div class="copyright-inner text-center  copyright-border">
+            <p>© Copyright 2024, All Rights Reserved by IPO Generator</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='plugins/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/jquery/jquery-migrate.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/inlineSvg/inlineSvg.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/fancybox/jquery.fancybox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/aos/aos.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/isotope/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/isotope/packery.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/isotope/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/slick/slick.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/countdown/jquery.countdown.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+<!-- Activation Script -->
+</body>
+
+
+</html>

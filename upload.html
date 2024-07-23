@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="IPO Generator is a powerful tool that allows you to convert DXF files into Excel reports. Easily extract and analyze plate information from your DXF files with just a few clicks.">
+  <meta name="keywords" content="autocad conversion, dxf parser, dxf extract">
+
+  <title>IPO Generator</title>
+
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='aos.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='fonts/typography/fonts.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='fonts/fontawesome/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/aos/aos.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/fancybox/jquery.fancybox.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/bootstrap/dist/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/demo.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/clash-display');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+  </style>
+</head>
+
+
+<body>
+  <div class="preloader-wrapper">
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  
+  <div class="page-wrapper overflow-hidden">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~
+     Header Area
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+ <header class="site-header site-header--transparent site-header--sticky">
+  <div class="container">
+    <nav class="navbar site-navbar">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~
+        Brand Logo
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <div class="brand-logo">
+        <a href="home.html">
+          <!-- light version logo (logo must be black)-->
+          <img class="logo-light" src="{{ url_for('static', filename='image/logo-new.svg') }}" alt="brand logo">
+         
+        </a>
+      </div>
+      <div class="menu-block-wrapper ">
+        <div class="menu-overlay"></div>
+        <nav class="menu-block" id="append-menu-header">
+          <div class="mobile-menu-head">
+            <a href='home.html'>
+              <img src="{{ url_for('static', filename='image/icons/logo-whites.svg') }}" alt="brand logo">
+            </a>
+            <div class="current-menu-title"></div>
+            <div class="mobile-menu-close">&times;</div>
+          </div>
+        
+        </nav>
+      </div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~
+      mobile menu trigger
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <div class="mobile-menu-trigger">
+        <span></span>
+      </div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~
+        Mobile Menu Hamburger Ends
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <div class="header-cta-btn-wrapper">
+        
+        <a href="{{ url_for('upload_file') }}" class="btn-masco btn-masco--header rounded-pill btn-fill--up">
+                    <span>Get Started</span></a>
+      </div>
+    </nav>
+  </div>
+</header>
+   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Home 4 : Hero Section 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<div class="home-4_hero-section bg-cream" id="hero">
+    <div class="home-4_hero-shape">
+      <img class="hero-shape-1" src="{{ url_for('static', filename='image/home-4/hero-shape.png') }}" alt="image alt" />
+      <img class="hero-shape-2" src="{{ url_for('static', filename='image/home-4/hero-shape-2.png') }}" alt="image shape" />
+    </div>
+    <div class="container">
+      <div class="row row--custom">
+        <div class="col-xxl-auto col-xl-5 col-lg-5 col-md-5 col-sm-6 col-xs-8 col-8" data-aos-duration="1000" data-aos="fade-left" data-aos-delay="300">
+          <div class="home-4_hero-image">
+            <img class="hero-image" src="{{ url_for('static', filename='image/home-4/hero.png') }}" alt="hero image" />
+          <!--  <div class="home-4_hero-image-shape">
+              <img src="{{ url_for('static', filename='image/home-4/hero-image-shape.svg') }}" alt="hero image shape" />
+            </div>-->
+          </div>
+        </div>
+        <div class="col-xxl-auto col-xl-7 col-lg-7 col-md-10" data-aos-duration="1000" data-aos="fade-right" data-aos-delay="300">
+          <div class="home-4_hero-content">
+            <div class="home-4_hero-content-text">
+              <h1 class="hero-content__title text-black heading-xl heading-xl heading-xl--dm-sans">
+                IPO Generator Simplify Your AutoCAD File Analysis              </h1>
+              <p>
+                IPO Generator is a powerful tool that allows you to convert AutoCAD files into Excel reports. Easily extract and analyze plate information from your AutoCAD files with just a few clicks.
+
+              </p>
+            </div>
+            <!--added here-->
+            <div class="home-4_hero-content-button">
+                <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+                  <div class="file-upload-wrapper" data-text="Select your file!" style="position: relative; width: 100%; height: 100px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; background: #f9f9f9; border-radius: 10px; cursor: pointer; margin-bottom: 20px;">
+                    <input type="file" name="file" accept=".dxf" class="file-upload-field" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                    <div style="text-align: center;">
+                      <i class="fas fa-upload" style="font-size: 24px; color: #888;"></i>
+                      <p style="margin: 10px 0 0; font-size: 16px; color: #888;">Drag & Drop or Click to Upload</p>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-masco rounded-pill" style="width: 250px;">Upload</button>
+                </form>
+              </div>
+              
+              <script>
+                document.querySelector('.file-upload-wrapper').addEventListener('change', function() {
+                  var fileName = this.querySelector('.file-upload-field').files[0].name;
+                  this.setAttribute('data-text', fileName);
+                  this.querySelector('p').textContent = fileName;
+                });
+              </script>
+              
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+              
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~
+     CTA Base 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div class="cta-base">
+      <div class="container">
+        <div class="cta-base__wrapper border-bottom-dark">
+          <div class="row align-items-center justify-content-center justify-content-md-between gutter-y-20">
+            <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-7 col-10">
+              <div class="cta-base__text-block">
+                <h2 class="heading-md text-white">Ready to grow your business digitally?</h2>
+              </div>
+            </div>
+            <div class="col-xl-auto col-lg-4 col-md-5 col-xs-8 col-10">
+              <div class="cta-base__button">
+                <a class='btn-masco rounded-pill btn-fill--up' href="{{ url_for('upload_file') }}">
+                  <span>Let's start the project</span></a>
+                <div class="cta-base__button-shape">
+                  <img src="{{ url_for('static', filename='image/home-1/cta-shape.svg') }}" alt=" Image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="copyright-block">
+        <div class="container">
+          <div class="copyright-inner text-center  copyright-border">
+            <p>© Copyright 2024, All Rights Reserved by IPO Generator</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='plugins/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/jquery/jquery-migrate.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/inlineSvg/inlineSvg.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/fancybox/jquery.fancybox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/aos/aos.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/isotope/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/isotope/packery.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/isotope/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/slick/slick.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/countdown/jquery.countdown.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+<!-- Activation Script -->
+</body>
+
+
+</html>
